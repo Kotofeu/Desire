@@ -1,0 +1,838 @@
+@import 'fonts';
+@import 'settings';
+@import "adapt-value";
+@import 'reset';
+@import 'global';
+@import 'slider';
+@import 'header';
+@import 'footer';
+
+.content {
+   padding-top: 70px;
+   height: 200vh;
+}
+
+.main {
+   flex: 1 1 auto;
+   height: 100%;
+}
+
+.footer {
+   justify-self: flex-end;
+}
+
+.collection {
+   &__inner {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+   }
+
+   &__collection-slider {
+      overflow: hidden;
+      @include adapt-typeShort("padding-left", $container, 0px, $Wsmal, 20px);
+      @include adapt-typeShort("padding-right", $container, 0px, $Wsmal, 20px);
+   }
+
+   &__collection-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include adapt-typeShort("max-height", $container, 87%, $Wlarge, 100%);
+   }
+
+   &__collection-slide {
+      display: flex;
+      @include adapt-typeShort("flex-direction", $container, row, $Wsmal, column);
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+   }
+
+   &__slide-image-box {
+      @include adapt-typeShort("margin-left", $container, -14vw, $Wsmal, 0);
+      height: 100%;
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   &__slide-image-item {
+      max-height: 800px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      @include adapt-typeShort("margin-right", $container, 30px, $Wsmal, 0px);
+      @include adapt-typeShort("margin-top", $container, 0px, $Wsmal, 20px);
+      @include adapt-typeShort("margin-bottom", $container, 0px, $Wsmal, 20px);
+
+   }
+
+   &__slide-content {
+      max-width: 600px;
+      width: 100%;
+      padding: 0 20px;
+      max-height: 85%;
+      min-height: 40%;
+      overflow-y: auto;
+      margin-bottom: 20px;
+   }
+
+   &__slide-title {
+      @include adapt-valueShort("font-size", $container, 110, 40);
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%;
+   }
+
+   &__slide-text {
+      margin-top: 50px;
+   }
+}
+
+.new-collection {
+   @include adapt-valueShort("margin-top", 1920, 120, 60);
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0 auto;
+      padding: 0 10px;
+   }
+
+   &__title {
+      @include adapt-valueShort("font-size", $container, 36, 20);
+      max-width: 730px;
+      width: 100%;
+   }
+
+   &__text {
+      max-width: 730px;
+      width: 100%;
+      text-align: center;
+      padding-top: 40px;
+      height: auto;
+   }
+
+   &__galery {
+      margin: 0 auto;
+      padding-top: 27px;
+      // padding: 27px 17px 0px;
+   }
+}
+
+.preview {
+   @include adapt-valueShort("margin-top", 1920, 120, 60);
+
+   &__inner {
+      position: relative;
+      min-height: 616px;
+   }
+
+   &__background {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+   }
+
+   &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 180px 0;
+   }
+
+   &__title {
+      @include adapt-valueShort("font-size", $container, 60, 40);
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      line-height: 133%;
+      max-width: 600px;
+      width: 100%;
+   }
+
+   &__text {
+      padding-top: 44px;
+      max-width: 540px;
+      width: 100%;
+
+   }
+}
+
+.how-it-works {
+   @include adapt-valueShort("margin-top", 1920, 120, 60);
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+   }
+
+   &__title {
+      @include adapt-valueShort("font-size", $container, 36, 20);
+      padding-bottom: 40px;
+   }
+
+   &__content-box {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+   }
+
+   &__content-list {
+      display: flex;
+      @include adapt-typeShort("flex-direction", $container, row, $Wmedium, column);
+      width: 100%;
+      height: 50%;
+
+      &:nth-child(1) {
+         position: relative;
+
+         &::after {
+            @include adapt-typeShort("display", $container, block, $Wmedium, none);
+            position: absolute;
+            content: "";
+            height: 2px;
+            background-color: $darkGray;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+         }
+
+         &::before {
+            @include adapt-typeShort("display", $container, block, $Wmedium, none);
+            position: absolute;
+            content: "";
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: $darkGray;
+            left: 0;
+            bottom: -4px;
+            left: -4px;
+         }
+
+         .how-it-works__content-item-box {
+            justify-content: flex-start;
+            padding-bottom: 37px;
+
+            &:last-child {
+               @include adapt-typeShort("padding-bottom", $container, 37px, $Wmedium, 0px);
+
+            }
+         }
+
+         .how-it-works__content-item-content {
+            &::after {
+               @include adapt-typeShort("display", $container, block, $Wmedium, none);
+
+               position: absolute;
+               content: "";
+               height: 20px;
+               width: 2px;
+               background-color: $darkGray;
+               left: 0;
+               bottom: -37px;
+            }
+         }
+      }
+
+      &:nth-child(2) {
+         .how-it-works__content-item-box {
+            justify-content: flex-end;
+            padding-top: 37px;
+
+         }
+
+         .how-it-works__content-item-content {
+            &::after {
+               @include adapt-typeShort("display", $container, block, $Wmedium, none);
+               position: absolute;
+               content: "";
+               height: 20px;
+               width: 2px;
+               background-color: $darkGray;
+               left: 0;
+               top: -37px;
+            }
+         }
+      }
+   }
+
+   &__content-item-box {
+      flex: 1 1 auto;
+      display: flex;
+
+   }
+
+   &__content-item-content {
+      @include adapt-typeShort("max-width", $container, 260px, $Wmedium, 100%);
+      position: relative;
+   }
+
+   &__content-item-name {
+      display: flex;
+      align-items: center;
+      padding-bottom: 14px;
+
+   }
+
+   &__content-item-logo {
+      max-width: 40px;
+      max-height: 40px;
+      object-fit: contain;
+   }
+
+   &__content-item-title {
+      font-size: 16px;
+      padding-left: 15px;
+
+   }
+}
+
+.compact-galery {
+   @include adapt-valueShort("margin-top", 1920, 120, 60);
+}
+
+.compact-blog {
+   @include adapt-valueShort("margin-top", 1920, 120, 60);
+   @include adapt-valueShort("margin-top", 1920, 80, 40);
+
+   &__inner {
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__title {
+      @include adapt-valueShort("font-size", $container, 36, 20);
+      text-align: center;
+      max-width: 430px;
+      margin: 0 auto;
+   }
+
+   &__blog {
+      flex: 1 1 auto;
+      padding-top: 30px;
+      display: flex;
+      @include adapt-typeShort("flex-direction", $container, row, $Wsmal, column);
+   }
+
+   &__blog-box {
+      padding-bottom: 40px;
+      @include adapt-typeShort("width", $container, 50%, $Wsmal, 100%);
+      @include adapt-typeShort("padding-left", $container, 15px, $Wsmal, 0px);
+      @include adapt-typeShort("padding-right", $container, 15px, $Wsmal, 0px);
+   }
+
+   &__blog-img {
+      @include adapt-typeShort("height", $container, 30vw, $Wsmal, 60vw);
+      max-height: 320px;
+      width: 100%;
+      object-fit: cover;
+   }
+}
+
+.braedcrumps__about {
+   position: absolute;
+   z-index: 5;
+}
+
+.about {
+   position: relative;
+   overflow: hidden;
+
+   &__background {
+      position: absolute;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+   }
+
+   &__inner {
+      padding: 180px 0;
+   }
+
+   &__tittle {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 133%;
+      text-align: center;
+      color: $darkGray;
+   }
+}
+
+.info {
+   padding-top: 120px;
+   display: flex;
+   flex-direction: column;
+
+   &__title {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 167%;
+
+      max-width: 830px;
+   }
+
+   &__content-text-box {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-end;
+   }
+
+   &__content-text {
+      padding-top: 40px;
+      max-width: 830px;
+   }
+}
+
+.video-box {}
+
+.inspiration {
+   margin-top: 100px;
+   position: relative;
+
+   &__background {
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+   }
+
+   &__inner {
+      display: flex;
+      @include adapt-typeShort("flex-direction", $container, row, $Wmedium, column);
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+
+   &__imgage-box {
+      @include adapt-typeShort("margin-left", $container, -10%, $Wmedium, 0);
+   }
+
+   &__imgage {
+      @include adapt-typeShort("max-height", $container, 500px, $Wmedium, auto);
+      @include adapt-typeShort("max-width", $container, 430px, $Wmedium, 100%);
+      object-fit: cover;
+   }
+
+   &__conent {
+      padding-left: 20px;
+      max-width: 800px
+   }
+
+   &__title {
+      @include adapt-valueShort("font-size", $container, 36, 20);
+
+   }
+
+   &__content-text {
+      padding-top: 40px;
+   }
+
+   &__characteristic-list {}
+
+   &__characteristic-item {
+      padding-top: 30px;
+   }
+
+
+   &__characteristic-content {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      &::after {
+         position: absolute;
+         display: block;
+         content: "";
+         border-radius: 4px;
+         height: 2px;
+         width: 100%;
+         bottom: -17px;
+         left: 0;
+         background-color: #fff;
+
+      }
+   }
+
+   &__characteristic-item-title {
+      padding-right: 20px;
+
+   }
+
+   &__characteristic-item-value {}
+
+   &__characteristic-progress {
+      position: relative;
+      z-index: 2;
+      display: block;
+      background: #363838;
+      border-radius: 4px;
+      height: 2px;
+      margin-top: 15px;
+   }
+}
+
+.some-gallery {
+   margin-top: 50px;
+   margin-bottom: 70px;
+
+   &__galery {}
+}
+
+.full-galery {
+   padding-top: 90px;
+   padding-bottom: 150px;
+}
+
+.braedcrumps-contact {
+
+   background-color: rgba($color: #DFDFDF, $alpha: 0.6);
+}
+
+.map-block {
+   &__map {
+      width: 100%;
+      height: 700px;
+      max-height: 60vh;
+   }
+}
+
+.contact-us {
+
+   &__inner {
+      margin-top: 50px;
+
+   }
+
+   &__title-box {
+      display: flex;
+      justify-content: flex-start;
+   }
+
+   &__title {
+      &::after {
+         width: 100%;
+      }
+   }
+
+   &__content-box {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 40px;
+
+   }
+
+   &__content {
+      max-width: 800px;
+   }
+
+   &__social {
+      display: flex;
+
+   }
+
+   &__social-item {
+      @include adapt-valueShort("margin-left", $container, 36, 10);
+
+      &:first-child {
+         margin-left: 0;
+      }
+   }
+
+   &__social-link {
+      height: 100%;
+      position: relative;
+      padding-left: 30px;
+      display: inline-block;
+      font-size: 0;
+   }
+
+   &__content-text {
+      padding-top: 28px;
+      color: #A1A1A1;
+   }
+
+   &__contacts-list {
+      padding-top: 10px;
+      font-size: 16px;
+      line-height: 169%;
+      color: #5A5A5A;
+   }
+
+   &__email {
+      margin-top: 6px;
+   }
+
+   &__form {
+      padding-top: 24px;
+   }
+
+}
+
+.small-slider {
+   margin: 100px 10px;
+   overflow: hidden;
+}
+
+
+
+
+.blog {
+   margin-bottom: 100px;
+   @include adapt-typeShort("margin-top", $container, 58px, $Wmedium, 28px);
+
+
+   &__inner {
+      display: flex;
+      @include adapt-typeShort("flex-direction", $container, row, $Wmedium, column);
+   }
+
+   &__blog-rightside {
+      @include adapt-typeShort("width", $container, 33.33%, $Wmedium, 100%);
+      min-width: 250px;
+   }
+
+   &__search-form {
+      position: relative;
+   }
+
+   &__search-input {
+      width: 100%;
+      border: 1px solid #383636;
+      border-radius: 20px;
+      padding: 6px 46px 6px 16px;
+
+   }
+
+   &__search-search-btn {
+      position: absolute;
+      top: 50%;
+      right: 17px;
+      transform: translateY(-50%);
+      height: 17px;
+      width: 17px;
+      background: url("@img/search.svg") center no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+   }
+
+   &__blogs-categories {
+      padding-top: 44px;
+   }
+
+   &__blogs-categories-title {
+      font-size: 16px;
+   }
+
+   &__blogs-categories-list {}
+
+   &__blogs-categories-item {
+      margin-top: 6px;
+   }
+
+   &__blogs-categories-link {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 169%;
+      color: #5A5A5A;
+
+
+   }
+
+   &__blogs-recent-posts {
+      padding-top: 44px;
+   }
+
+   &__blogs-recent-posts-title {
+      font-size: 16px;
+   }
+
+   &__blogs-recent-posts-list {
+      @include adapt-typeShort("max-width", $container, 340px, $Wmedium, 100%);
+   }
+
+   &__blogs-recent-posts-item {
+      margin-top: 6px;
+
+   }
+
+   &__blogs-recent-posts-link {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 169%;
+      color: #5A5A5A;
+   }
+   &__blogs-recent-posts-info-box{
+      display: flex;
+      flex-wrap: wrap;
+   }
+   &__blogs-recent-posts-info{
+      padding-right: 12px;
+      margin-bottom: 8px;
+      margin-right: 6px;
+      position: relative;
+      font-family: 'OpenSans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 200%;
+
+      color: #A1A1A1;
+
+      &::after {
+         content: "|";
+         position: absolute;
+         right: 0px;
+         top: 50%;
+         transform: translateY(-50%);
+      }
+
+      &:last-child {
+         &::after {
+            display: none;
+         }
+      }
+
+   }
+   &__social {
+      padding-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+      
+   }
+
+   &__social__social-item {
+      @include adapt-valueShort("margin-right", $container, 20, 10);
+   }
+
+   &__social-social-link {
+      height: 100%;
+      position: relative;
+      padding-left: 30px;
+      display: inline-block;
+      font-size: 0;
+   }
+
+   &__blog-leftside {
+      @include adapt-typeShort("order", $container, 0, $Wmedium, 2);
+      @include adapt-typeShort("width", $container, 66.66%, $Wmedium, 100%);
+
+      margin-right: 30px;
+   }
+
+   &__blog-content-text {
+      padding-top: 10px;
+   }
+   &__blogs-navigation-tags-title{
+      padding-top: 30px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 151%;
+   }
+   &__tags-title {
+      padding-top: 50px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 151%;
+   }
+
+   &__comments {
+      padding-top: 30px;
+   }
+
+   &__comment {
+      margin-top: 20px;
+      display: flex;
+      position: relative;
+
+   }
+
+   &__comment-ava {
+      flex: 1 1 auto;
+      min-width: 64px;
+      max-width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+   }
+
+   &__comment-conent {
+      flex: 1 1 auto;
+      max-width: 600px;
+      margin-left: 10px;
+   }
+
+   &__comment-conent-date {
+      font-size: 14px;
+      line-height: 200%;
+      color: #A1A1A1;
+
+   }
+
+   &__comment-reply {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: transparent;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 200%;
+      text-align: right;
+      border: none;
+      color: #707070;
+   }
+
+   &__comments-title {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 151%;
+   }
+
+   &__form-title {
+      font-size: 16px;
+      padding-top: 50px;
+      font-weight: 700;
+      line-height: 151%;
+   }
+
+   &__form {
+      margin-top: 25px;
+   }
+}

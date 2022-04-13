@@ -1,0 +1,231 @@
+.header {
+   justify-self: flex-start;
+   background-color: #fff;
+   position: relative;
+   &__inner {
+      position: relative;
+      z-index: 50;
+      display: flex;
+      @include adapt-valueShort("padding-top", $container, 45, 15);
+      @include adapt-valueShort("padding-bottom", $container, 45, 15);
+      align-items: center;
+      justify-content: space-between;
+      @media (min-width: #{$Wsmal + px}) {
+         .header__btn{
+            display: block;
+         }
+         .header__burger{
+            display: none;
+         }
+         .header__logo{
+            margin: 0 auto;
+            position: relative;
+         }
+      }
+   }
+   &__logo {
+      margin: 0 0;
+   }
+   &__logo-img {
+      width: 97px;
+      height: 31px;
+   }
+   &__right-side-menu {
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+      transition: all .6s ease-in-out;
+      transform: translateX(110%);
+      &--active{
+         transform: translateX(0);
+      }
+   }
+
+   &__btn{
+      display: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      @include adapt-valueShort("padding-left", $container, 21, 0);
+      @include adapt-valueShort("font-size", $container, 21, 0);
+
+   }
+   &__burger{
+      height: 27px;
+      width: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-self:flex-end;
+      background-color: transparent;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      position: relative;
+      cursor: pointer;
+      & span{
+         transition: all .2s;
+         background-color: $darkGray;
+         height: 4px;
+         width: 28px;
+         margin-top: 5px;
+         border-radius: 2px;
+      }
+      &--cross{
+         position: relative;
+         & span{
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            &:nth-child(odd){
+               transform: rotate(45deg);
+            }
+            &:nth-child(even){
+               transform: rotate(-45deg);
+
+            }
+         }
+      }
+   }
+}
+.menu {
+   transform: translateY(-300%);
+   transition: transform .5s ease-in-out;
+   position: fixed;
+   top: 60px;
+   left: 0;
+   background-color: #fff;
+   width: 100%;
+   height: 60px;
+   z-index: -1;
+   &--active{
+      transform: translateY(0);
+   }
+   &:nth-child(1){
+      top: 115px;
+      box-shadow: 1px 0 3px 3px #000;
+   }
+   @media (min-width: #{$Wsmal + px}) {
+      transform: translateY(0);
+      box-shadow: none;
+      position: static;
+      background-color: transparent;
+      height: auto;
+      width: auto;
+      &__list{
+         flex-direction: row;
+         position: relative;
+      }
+      &:nth-child(1){
+         box-shadow: none;
+      }
+      .menu__link{
+         font-size: 16px;
+      }
+   }
+   &__list {
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+   }
+   &__item {
+      @include adapt-valueShort("padding-left", $container, 40, 10);
+      @include adapt-valueShort("padding-right", $container, 40, 10);
+   }
+   &__link {
+      @extend %title-font;
+      font-size: 20px;
+      opacity: .9;
+      position: relative;
+      cursor: pointer;
+      transition: color .2s linear;
+
+      &::after{
+         transition: all .2s linear;
+         @media (min-width: #{$Wsmal + px})  {
+            content: "";
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            left: 0;
+            width: 100%;
+            bottom: 0px;
+            margin-bottom: -8px;
+            height: 2px;
+            background: #363838;
+            opacity: 0;
+            border-radius: 1px;
+         }
+      }
+      &:hover{
+         color: #979797;
+         &::after{
+            opacity: .7;
+         }
+      }
+   }
+}
+.right-side-menu {
+   position: fixed;
+   right: 0;
+   top: 0;
+   overflow-y: auto;
+   box-shadow: -1px 1px 5px #000;
+   @include adapt-valueShort("width", $container, 694, 320);
+   background-color: #fff;
+   height: 100%;
+   min-height: 100vh;
+   &__btn{
+      background-color: transparent;
+      border: none;
+      margin-top: 41px;
+      margin-left: 47px;
+   }
+   &__inner {
+      @include adapt-valueShort("width", $container, 483, 300);
+      margin: 0 auto;
+   }
+
+   &__logo-img {
+      position: relative;
+      padding-top: 30px;
+      width: 194px;
+      height: 88px;
+      margin: 0 auto;
+   }
+
+   &__title {
+      padding-top: 26px;
+      text-align: center;
+      @include adapt-valueShort("font-size", $container, 36, 20);
+
+      &::after{
+         position: absolute;
+         content: "";
+         height: 1px;
+         background: #979797;
+         width: 252px;
+         bottom: 0;
+         margin-bottom: -10px;
+         left: 50%;
+         transform: translateX(-50%);
+      }
+   }
+
+   &__text {
+      padding-top: 30px;
+      text-align: center;
+   }
+
+   &__img {
+      max-width: 100%;
+      padding-top: 75px;
+      object-fit: cover;
+      padding-bottom: 20px;
+   }
+}

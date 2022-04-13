@@ -1,0 +1,165 @@
+.footer {
+   padding-top:20px;
+   background-color: #DFDFDF;
+   &__inner {
+      min-height: 341px;
+      @include adapt-valueShort("padding-top", $container, 60, 10);
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 10px;
+      @media (min-width: 576.98px) {
+         flex-direction: row;
+         .header__contact{
+            width: 50%;
+         }
+         .footer__social-link{
+            font-size: 14px;
+         }
+         .footer__social{
+            justify-content: start;
+
+            flex-direction: column;
+         }
+         .footer__menu{
+            justify-content: start;
+            flex-direction: column;
+         }
+         .footer__menu-item{
+            margin: 0;
+         }
+      }
+   }
+   &__contact {
+      @media (min-width: 576.98px) {
+         width: 50%;
+      }
+      width: 100%;
+      flex: 1 1 auto;
+   }
+   &__contact-text {
+      padding-top: 14px;
+      max-width: 480px;
+   }
+
+   &__contact-email {
+      margin-top: 16px;
+   }
+
+   &__contact-form {
+      padding-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+   &__contact-input {
+      flex: 1 1 auto;
+      border: 1px solid rgba(#383636, .7);
+      color: $darkGray;
+      box-sizing: border-box;
+      border-radius: 21px;
+      @media (max-width: 992.98px) {
+         width: 100%;
+      }
+   }
+
+   &__contact-btn {
+      @media (max-width: 992.98px) {
+         margin-top: 10px;
+         margin-left: 0px;
+         margin-bottom: 10px;
+      }
+
+      margin-left: 10px;
+   }
+
+   &__social {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex: 1 1 auto;
+   }
+   &__social-link {
+      position: relative;
+      padding-left: 30px;
+      display: inline-block;
+      @include adapt-valueShort("margin-left", $container, 90, 10);
+      font-size: 0;
+      margin-bottom: 15px;
+      &--facebook::before{
+         background: url("@img/facebook.svg") no-repeat;
+      }
+      &--instagram::before{
+         background: url("@img/instagram.svg") no-repeat;
+
+      }
+      &--pinterest::before{
+         background: url("@img/pinterest.svg") no-repeat;
+
+      }
+      &--whatsapp::before{
+         background: url("@img/whatsapp.svg") no-repeat;
+
+      }
+      &--youtube::before{
+         background: url("@img/youtube.svg") no-repeat;
+
+      }
+
+      &--facebook, &--instagram, &--pinterest, &--whatsapp, &--youtube{
+         &::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-size: contain;
+            background-position: center;
+            height: 16px;
+            width: 16px;
+         }
+      }
+
+   }
+
+   &__menu {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1 1 auto;
+   }
+
+   &__menu-item {
+      margin: 0 10px;
+
+   }
+   &__menu-link {
+      display: inline-block;
+      @include adapt-valueShort("margin-left", $container, 90, 10);
+      margin-bottom: 0px;
+      @media (min-width: 576.98px) {
+         margin-bottom: 15px;
+      }
+   }
+
+   &__copyright {
+      background-color: $darkGray;
+      @include adapt-valueShort("padding-top", $container, 42, 10);
+      @include adapt-valueShort("padding-bottom", $container, 42, 10);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   &__copyright-text {
+      color: #A1A1A1;
+      text-align: center;
+      font-family: 'OpenSans';
+      font-style: normal;
+      font-weight: 400;
+      @include adapt-valueShort("font-size", $container, 16, 14);
+      line-height: 175%;
+   }
+}
